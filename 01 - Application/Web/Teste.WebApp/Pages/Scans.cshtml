@@ -1,0 +1,44 @@
+﻿@page
+@model ScansModel
+@{
+    ViewData["Title"] = "Consultar Arquivos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Consultar Arquivos.</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Status
+            </th>
+            <th width="20px">
+                Link
+            </th>
+            <th>
+                Data
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Scans)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.response_code)
+                </td>
+                <td width="20px">
+                    @Html.DisplayFor(modelItem => item.permalink)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    <a href="./ScanDetail?scan_id=@item.scan_id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

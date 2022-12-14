@@ -1,0 +1,13 @@
+﻿@page
+@model SendFileModel
+@{
+    ViewData["Title"] = "Enviar Arquivo";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Enviar Arquivo.</p>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="Upload" />
+    <input type="submit" />
+</form>
+<b style="color:green">@TempData["Message"]</b>

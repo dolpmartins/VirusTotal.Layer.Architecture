@@ -1,0 +1,39 @@
+﻿@page
+@model ScanDetailModel
+@{
+    ViewData["Title"] = "Consultar Arquivos";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Detalhes do arquivo.</p>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <td>Status: @Html.DisplayFor(modelItem => Model.Detail.response_code)</td>
+            <td>Positives: @Html.DisplayFor(modelItem => Model.Detail.report.positives)</td>
+            <td>Total: @Html.DisplayFor(modelItem => Model.Detail.report.total)</td>
+            <td>Date: @Html.DisplayFor(modelItem => Model.Detail.CreatedDate)</td>
+        </tr>
+        <tr>
+            <td>
+                 McAfee Detected: @Html.DisplayFor(modelItem => Model.Detail.report.scans.McAfee.detected)
+            </td>
+        </tr>
+        <tr>
+            <td width="20px">
+                TheHacker Detected: @Html.DisplayFor(modelItem => Model.Detail.report.scans.TheHacker.detected)
+            </td>
+        <tr/>
+        <tr>
+            <td>
+                VirusBuster Detected: @Html.DisplayFor(modelItem => Model.Detail.report.scans.CATQuickHeal.detected)
+            </td>
+        <tr />
+        <tr>
+            <td>
+                CATQuickHeal Detected: @Html.DisplayFor(modelItem => Model.Detail.report.scans.VirusBuster.detected)
+            </td>
+        <tr />
+    </tbody>
+</table>
